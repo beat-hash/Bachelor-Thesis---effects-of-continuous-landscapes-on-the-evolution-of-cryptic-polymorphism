@@ -9,10 +9,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns 
 import numpy as np 
-import matplotlib.colors as mcolors
-from multi_species import MyMultiSpecies as msp
 import scipy.interpolate as scip 
-from landscapes import *
+
 
 def slope(M):
     n = np.shape(M)[0]
@@ -48,10 +46,8 @@ axs[1].set_xlabel("Trait value")
 plt.show()
 
 # Load Datasets for visualization
-df_oppcost = pd.read_pickle("ExperimentAstarFixed.pkl") # DataFrame, experiment with opportunity cost
-df = pd.read_pickle("MyExperimentA.pkl") # DataFrame, experiment A 
-W = complete_spacePeriodic(32, 32, 2*np.pi)
-df['Local Morans'] = df['Landscape'].apply(lambda l : morans_i(np.log(l+1e-6).reshape((32,32)), W))
+df_oppcost = pd.read_pickle("ExperimentAstar.pkl") # DataFrame, experiment with opportunity cost
+df = pd.read_pickle("ExperimentA.pkl") # DataFrame, experiment A 
 
 
 # Figure 3.3 - spline interpolation map
